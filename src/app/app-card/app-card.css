@@ -1,0 +1,24 @@
+.app-card {
+  box-shadow: 0 1px 16px 0 rgba(0, 0, 0, .2), 0 2px 8px 0 rgba(0, 0, 0, .14), 0 4px 8px -1px rgba(0, 0, 0, .12);
+}
+
+.app-card .card-header {
+  font-size: 20px;
+  font-weight: bold;
+  user-select: none;
+}
+
+.app-card .card-body .card-text {
+  user-select: none;
+}
+
+.app-img {
+  border-radius: 4px;
+  margin-top: 10px;
+}
+.app-card .card-text {
+  min-height: 100px;
+}
+.highlighted {
+  box-shadow: 0 2px 16px 0 #de1e19, 0 3px 8px 0 rgba(226, 21, 19, 0.47), 0 6px 8px -1px #b41c18;
+}

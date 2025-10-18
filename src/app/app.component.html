@@ -1,0 +1,55 @@
+<div class="top-menu">
+  <img class="logo" src="/images/main-page-logo.png" alt="main logo">
+</div>
+
+<main class="container">
+  <div class="p-4 p-md-5 my-4 rounded text-bg-dark">
+    <div class="col-md-6 px-0">
+      <h1 class="display-4 fst-italic">{{ title | titlecase }}</h1>
+      <p class="lead my-3">This lectures will give you a practical hands-on introduction to the Angular framework. After
+        taking this course you will feel very comfortable navigating the code of an existing Angular application and
+        finding your way around, and you will know how to build your own custom components.
+      </p>
+    </div>
+  </div>
+  <section class="content">
+    <div class="container-fluid">
+      <!-- Template -->
+      <div class="content-wrapper row mt-4">
+        <!-- New syntax example
+        track data.id Custom track function example
+        if we have not unique id: track data or track $index-->
+        @for (data of AppCardData; track trackElement($index, data)) {
+          <common-card (lectureSelected)="onLectureSelected($event)"
+                       (subscribeSelected)="onSubscribeSelected($event)"
+                       [cardIndex]="$index + 1"
+                       [cardData]="data"
+                       [class.is-first]='$first'
+                       [class.is-last]="$last"
+                       [class.is-even]="$even"
+                       [class.is-odd]="$odd"
+                       class="col-md-3"/>
+        }
+        @empty {
+          <h2>No lectures found.</h2>
+        }
+
+        <!-- Old syntax example ngFor is deprecated now
+        <common-card *ngFor="let data of AppCardData; index as i; first as isFirst; last as isLast;
+                    even as isEven; odd as isOdd" (lectureSelected)="onLectureSelected($event)"
+                     [cardIndex]="i + 1"
+                     [cardData]="data"
+                     [class.is-first]='isFirst'
+                     [class.is-last]="isLast"
+                     [class.is-even]="isEven"
+                     [class.is-odd]="isOdd"
+                     class="col-md-3"/>
+        -->
+      </div>
+      <!-- ./Template -->
+    </div>
+  </section>
+</main>
+<view-modal-content style="display: none" />
+<ngbd-modal-content style="display: none" />
+<router-outlet/>
